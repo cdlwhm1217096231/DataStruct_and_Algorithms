@@ -3,7 +3,7 @@
 #include "cstdlib"
 #include "io.h"
 #include "cstring"
-
+#include "ctime"
 
 using namespace std;
 
@@ -154,6 +154,49 @@ Status TravelList(LinkList L){
     return OK;
 }
 
+// 创建整个单链表---头插法
+void CreateListHead(LinkList *L, int n){
+    LinkList p;
+    srand(time(0));
+    *L = (LinkList)malloc(sizeof(Node));
+    (*L)->next = NULL;   // 建立一个带有头结点的单链表
+    for(int i = 0; i < n; i++){
+        p = (LinkList)malloc(sizeof(Node));  // 生成一个新的结点
+        p->data = rand() % 100 +1;  // 数据域
+        /*下面的两句就是插入操作的语句，使用的是头插法，在头结点后进行插入操作*/
+        p->next = (*L)->next;
+        (*L)->next = p;
+    }
+}
+
+// 创建整个单链表----尾插法
+void CreateListTail(LinkList *L, int n){
+    LinkList p, r;
+    srand(time(0));
+    *L = (LinkList)malloc(sizeof(Node));   // L是一个结点，这个节点可以当作是一个单链表
+    r = *L;  // r是指向尾部的节点
+    for(int i=0; i < n; i++){
+        p = (LinkList)malloc(sizeof(Node));  // 生成新的节点
+        p->data = rand() % 100 +1;
+        r->next = p;
+        r = p;  // 将当前的新结点当作单链表的尾结点
+    }
+    r->next = NULL;  // 单链表最后的指针域指向NULL
+}
+
+
+// 单链表的整表删除---从第一个结点开始，逐个删除结点
+int ClearList(LinkList *L){
+    LinkList p, q;
+    p = (*L)->next; // p指向第一个结点
+    while(p){
+        q = p->next;
+        free (p);
+        p = q;
+    }
+    (*L)->next = NULL;
+    return 1;
+}
 
 
 int main(){
@@ -213,6 +256,19 @@ int main(){
     DeleteElem(&L, 5, &e);
     cout << "删除第" << j << "个元素，元素的值是: " << e << endl;
     cout << "依次打印出元素的值: ";
+    TravelList(L);
+
+    i = ClearList(&L);
+    cout << "清空L后，L的长度是: " << ListLength(L) << endl;
+    CreateListHead(&L, 20);
+    cout << "头插法: ";
+    TravelList(L);
+
+    i = ClearList(&L);
+    cout << "清空L后，L的长度是: " << ListLength(L) << endl;
+
+    CreateListTail(&L, 20);
+    cout << "尾插法: ";
     TravelList(L);
     return 0;
 }
