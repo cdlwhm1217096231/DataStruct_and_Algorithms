@@ -67,7 +67,7 @@ void Merge_Pass(int A[], int TempA[], int N, int length)
         Merge(A, TempA, i, i + length, N - 1);   // 再将TempA中元素重新倒入到A
     else  // 最后只剩一个子列
     {
-        for (int j = 1; j < N; j++)
+        for (int j = i; j < N; j++)
             TempA[j] = A[j];
     }
 }
@@ -101,16 +101,16 @@ void show(int *A, int N){
 }
 
 int main(){
-    int A[] = {50,10,90,30,70,40,80,60,20, 1};
-    cout << "归并排序前(递归方法): ";
-    show(A, 10);
-    Merge_Sort(A, 10);
-    cout << "归并排序后(递归方法): ";
-    show(A, 10);
+    int A[] = {50,10,90,30,70,40,80,60,20};
+    // cout << "归并排序前(递归方法): ";
+    // show(A, 9);
+    // Merge_Sort(A, 9);
+    // cout << "归并排序后(递归方法): ";
+    // show(A, 9);
     cout << "-------------------------------------------\n";
     cout << "归并排序前(非递归方法): ";
-    show(A, 10);
-    Merge_Sort2(A, 10);
+    show(A, 9);
+    Merge_Sort2(A, 9);
     cout << "归并排序后(非递归方法): ";
     show(A, 9);
     return 0;
