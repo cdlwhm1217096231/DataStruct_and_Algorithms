@@ -32,12 +32,12 @@ class Solution{
             }
             // 利用中序遍历找到的根节点位置，对二叉树节点进行分割，分割成左右两部分的子树
             for(int i = 0; i < root; ++i){
-                left_midorder.push_back(midorder[i]);  // 中序遍历中左子树
-                left_preorder.push_back(preoder[i+1]); // 前序遍历中左子树
+                left_midorder.push_back(midorder[i]);  // 中序遍历中的左子树
+                left_preorder.push_back(preoder[i+1]); // 前序遍历中的左子树
             }
             for(int i = root+1; i < preoder.size();++i){  
-                right_midorder.push_back(midorder[i]);  // 中序遍历中右子树
-                right_preorder.push_back(preoder[i]);   // 前序遍历中左子树
+                right_midorder.push_back(midorder[i]);  // 中序遍历中的右子树
+                right_preorder.push_back(preoder[i]);   // 前序遍历中的右子树
             }
             // 再递归上面的操作
             head->left = reConstructBinaryTree(left_preorder, left_midorder);
