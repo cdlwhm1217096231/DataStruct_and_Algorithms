@@ -11,13 +11,13 @@ using namespace std;
 typedef int Status;
 typedef struct
 {
-    int r[MAXSIZE];
+    int r[MAXSIZE+1];
     int len;
 } Sqlist;
 
 void show(Sqlist L)
 {
-    for (int i = 1; i < L.len; i++)
+    for (int i = 1; i <= L.len; i++)
         cout << L.r[i] << " ";
     cout << endl;
 }
