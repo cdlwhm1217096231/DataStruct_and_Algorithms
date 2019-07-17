@@ -14,7 +14,7 @@ typedef struct
 
 void show(Sqlist L)
 {
-    for (int i = 1; i < L.len; i++)
+    for (int i = 1; i <= L.len; i++)
         cout << L.r[i] << " ";
     cout << endl;
 }
