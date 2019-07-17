@@ -24,7 +24,7 @@ void Swap(Sqlist *L, int i, int j){
 
 // 打印元素的值
 void show(Sqlist L){
-    for(int i = 1; i < L.len; i++)
+    for(int i = 1; i <= L.len; i++)
         cout << L.r[i] << " ";
     cout << endl;
 }
