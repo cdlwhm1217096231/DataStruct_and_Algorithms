@@ -10,11 +10,12 @@ class Solution{
                 return;
             int original_len = 0;  // 原始字符串的长度
             int number_blank = 0;  // 原始字符串中的空格数目
-            int i;
-            while(str[i++] != '\0'){  // 遍历字符串
+            int i=0;
+            while(str[i] != '\0'){  // 遍历字符串
                 ++original_len;  // 字符串长度+1
                 if(str[i] == ' ')
                     ++number_blank;   // 统计空格的数目
+                ++i;
             }  
             
             int new_len = original_len + 2 * number_blank;  // 替换空格为20%后的字符串长度
@@ -22,8 +23,8 @@ class Solution{
                 return;
             }
 
-            int original_index = original_len - 1;  // 原始字符串最后一个字符的索引
-            int new_index = new_len - 1;  // 替换后的字符串最后一个字符的索引
+            int original_index = original_len;  // 原始字符串最后一个字符的索引
+            int new_index = new_len;  // 替换后的字符串最后一个字符的索引
             while(original_index >= 0 && new_index > original_index){
                 // index_original指针开始向前移动，如果遇到空格，替换成'%20'，否则进行移动操作
                 if(str[original_index] == ' '){  
