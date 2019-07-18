@@ -12,7 +12,7 @@ class Solution{
             int number_blank = 0;  // 原始字符串中的空格数目
             int i=0;
             while(str[i] != '\0'){  // 遍历字符串
-                ++original_len;  // 字符串长度+1
+                ++original_len;  // 统计原始字符串长度
                 if(str[i] == ' ')
                     ++number_blank;   // 统计空格的数目
                 ++i;
