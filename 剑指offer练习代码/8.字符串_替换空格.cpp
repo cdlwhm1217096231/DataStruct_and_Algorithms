@@ -16,7 +16,12 @@ class Solution{
                 if(str[i] == ' ')
                     ++number_blank;   // 统计空格的数目
             }  
+            
             int new_len = original_len + 2 * number_blank;  // 替换空格为20%后的字符串长度
+            if(new_len > len){
+                return;
+            }
+
             int original_index = original_len - 1;  // 原始字符串最后一个字符的索引
             int new_index = new_len - 1;  // 替换后的字符串最后一个字符的索引
             while(original_index >= 0 && new_index > original_index){
