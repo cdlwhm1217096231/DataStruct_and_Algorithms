@@ -6,7 +6,8 @@ using namespace std;
 
 
 int main(){
-    int n, num;
+    
+    int n=0, num=0;
 
     while(cin >> n){
         vector<int> vec;
