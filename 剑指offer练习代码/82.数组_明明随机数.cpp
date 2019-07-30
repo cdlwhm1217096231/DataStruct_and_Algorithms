@@ -17,7 +17,7 @@ int main(){
         }
 
         sort(vec.begin(), vec.end());
-
+        // vector»•÷ÿ
         auto end_unique = unique(vec.begin(), vec.end());
         vec.erase(end_unique, vec.end());
 
